@@ -37,8 +37,13 @@ window.addEventListener('scroll',_.throttle(function(){
 // _.throttle(함수,시간) 부화 주기. 
 // 300 은 0.3s 의미 하는데 0.3초 부하를 줘서 동시에 함수 호출시 충돌 방지
 
-
-
+const fadeEls = document.querySelectorAll(".visual .fade-in")
+fadeEls.forEach( function (fadeEl,index) {
+    gsap.to(fadeEl, .9 , {
+        delay: (index + 1) * .7, // 0.7 -> 1.4 -> 2.1 -> 2.7 s
+        opacity: 1,
+    } );
+});
 
 
 
