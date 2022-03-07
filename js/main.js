@@ -13,3 +13,33 @@ searchInputEl.addEventListener('blur',function(){
     searchEl.classList.remove('focused');
     searchInputEl.setAttribute('placeholder','');
 });
+
+// scroll 될때마다 숫자가 늘어남
+const badgeEl = document.querySelector('header .badges');
+
+window.addEventListener('scroll',_.throttle(function(){
+    console.log(window.scrollY);
+    if(window.scrollY > 500){
+        // badge 숨기기
+        // gsap.to(요소 지속시간 옵션) 많이 씀 js animation library 
+        gsap.to(badgeEl, .6 , {
+            opacity:0,
+            display: 'none'
+        })
+    }else {
+        // badge 나타내기
+        gsap.to(badgeEl, .6 , {
+            opacity:1,
+            display: 'block'
+        })
+    }
+},300));
+// _.throttle(함수,시간) 부화 주기. 
+// 300 은 0.3s 의미 하는데 0.3초 부하를 줘서 동시에 함수 호출시 충돌 방지
+
+
+
+
+
+
+
