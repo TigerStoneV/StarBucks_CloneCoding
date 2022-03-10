@@ -103,7 +103,17 @@ floatingObject('.floating1',1,15);
 floatingObject('.floating2',.5,9);
 floatingObject('.floating3',1.5,20);
 
-
+// scrollmagic
+const spyEls =document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function(spyEl){
+    new ScrollMagic
+    .Scene({
+        triggerElement:spyEl, //보여짐에 여유를 감시할 요소를 선택
+        triggerHook:.8, //
+    })
+    .setClassToggle(spyEl,'show')
+    .addTo(new ScrollMagic.Controller());
+});
 
 
 
